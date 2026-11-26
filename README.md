@@ -1,73 +1,72 @@
-# 🤖 Agentic AI Lab & System Implementations
+# 🤖 Agentic AI Workshop & Implementations
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![LangChain](https://img.shields.io/badge/LangChain-Integration-green.svg)](https://www.langchain.com/)
 [![Groq](https://img.shields.io/badge/LLM-Groq%20Cloud-orange.svg)](https://groq.com/)
-[![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen.svg)]()
+[![Google Gemini](https://img.shields.io/badge/LLM-Google%20Gemini-blue.svg)](https://ai.google.dev/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-orange.svg)](https://jupyter.org/)
 
-A structured repository tracking hands-on implementations, agent architectures, and LLM engineering patterns built throughout the Agentic AI series.
-
----
-
-## 📌 Implementation Roadmap
-
-| Day | Topic | Domain | Primary Model / Tools | Notebook |
-| :--- | :--- | :--- | :--- | :--- |
-| **Day 01** | LLM Fundamentals & Safety | Sweet Crumbs Bakery | `openai/gpt-oss-120b`, Meta Prompt Guard | [`DAY1/agenticAI_Day1.ipynb`](DAY1/agenticAI_Day1.ipynb) |
-| **Day 02** | Prompts, Memory & Intent Agents | BrightPage Stationery | 4-Pillar System Prompt, Sliding Window Memory | [`DAY2/agenticAI_Day2.ipynb`](DAY2/agenticAI_Day2.ipynb) |
+Hands-on repository tracking the progressive architecture of autonomous LLM agents — from single API calls and safety guardrails to composable LCEL chains, test-driven evaluation, and multi-step reasoning agents.
 
 ---
 
-## 🚀 Module Breakdown
+## 🗂️ Daily Modules & Navigation
 
-### 🔹 [Day 1] Foundations, Groq Integration & Guardrails
-- **Directory:** [`DAY1/`](DAY1/)
-- **Target Application:** Sweet Crumbs Bakery customer assistant.
-- **Core Topics Covered:**
-  - Token economics, sampling temperature ($T=0.2$ vs $T=1.2$), and stateless API mechanics.
-  - Groq Cloud inference utilizing LangChain's `ChatGroq`.
-  - Input/Output validation pipeline using Meta Llama Prompt Guard (`meta-llama/llama-prompt-guard-2-22m`).
-  - Interactive testing cells for latency and token profiling.
-
-### 🔹 [Day 2] In-Context Memory, Structured Extraction & Policies
-- **Directory:** [`DAY2/`](DAY2/)
-- **Target Application:** BrightPage Stationery & Office Supplies order bot.
-- **Core Topics Covered:**
-  - **4-Pillar System Calibration:** Role definition, store factual inventory, business logic constraints, and response length formatting.
-  - **Few-Shot In-Context Classifier:** Deterministic customer intent tagging (`order` / `inquiry` / `complaint`).
-  - **Schema Enforcement:** Converting conversational chat inputs into machine-readable JSON order records.
-  - **Manual Sliding-Window Memory:** Stateful multi-turn dialogue management with strict token window boundary controls (`MAX_TURNS`).
-  - **Exception & Rate Limiting Strategy:** Fallback wrappers handling HTTP 429 and transient connection faults.
+| Module | Focus & Domain | Documentation | Notebook |
+| :--- | :--- | :---: | :---: |
+| **Day 1** | **LLM Fundamentals, Groq API & Prompt Guard**<br>Sweet Crumbs Home Bakery Assistant | [📖 Day 1 Guide](DAY1/README.md) | [💻 Day 1 Notebook](DAY1/agenticAI_Day1.ipynb) |
+| **Day 2** | **Prompts, Memory & Structured Agent Architecture**<br>BrightPage Stationery & Office Supplies Assistant | [📖 Day 2 Guide](DAY2/README.md) | [💻 Day 2 Notebook](DAY2/agenticAI_Day2.ipynb) |
+| **Day 3** | **LCEL Chains, Systematic Evaluation & Agent Sneak Peek**<br>Composable Chains, CSV Evaluations & Google Gemini | [📖 Day 3 Guide](DAY3/README.md) | [💻 Day 3 Notebook](DAY3/task.ipynb) |
 
 ---
 
-## 🛠️ Quickstart & Setup
+## 🚀 Quickstart
 
-### 1. Environment Configuration
-Clone the repository and set up a Python virtual environment:
-```bash
-git clone https://github.com/harsha-medapati/Agentic_Ai.git
-cd Agentic_Ai
-python -m venv venv
-# Linux/macOS:
-source venv/bin/activate
-# Windows:
-.\venv\Scripts\activate
-```
+1. **Clone & Set Up Virtual Environment:**
+   ```bash
+   git clone https://github.com/harsha-medapati/Agentic_Ai.git
+   cd Agentic_Ai
+   python -m venv venv
+   .\venv\Scripts\activate   # On Windows
+   # source venv/bin/activate # On Linux/macOS
+   ```
 
-### 2. Environment Variables
-Copy `.env.example` to `.env` and specify your Groq API credentials:
-```bash
-cp .env.example .env
-```
-Inside `.env`:
-```env
-GROQ_API_KEY=gsk_your_groq_api_key_here
-```
+2. **Configure API Keys:**
+   ```bash
+   cp .env.example .env
+   ```
+   Add your keys inside `.env`:
+   ```env
+   GROQ_API_KEY=gsk_your_groq_api_key_here
+   GOOGLE_API_KEY=your_gemini_api_key_here
+   ```
+   *(For Google Colab, add them under the **Secrets (🔑)** panel and toggle **Notebook access** to ON).*
 
-### 3. Running Notebooks
-Launch Jupyter Notebook or JupyterLab:
-```bash
-jupyter notebook
+3. **Install Dependencies & Launch:**
+   ```bash
+   pip install langchain langchain-groq langchain-google-genai openai pydantic ipywidgets python-dotenv
+   jupyter notebook
+   ```
+
+---
+
+## 📁 Repository Structure
+
+```text
+.
+├── .env.example                  # Environment variables template (Groq & Gemini)
+├── .gitignore                    # Git ignore rules for secrets & caches
+├── README.md                     # Main repository hub (this file)
+├── DAY1/
+│   ├── .env.example              # Local day-level env template
+│   ├── README.md                 # Detailed Day 1 technical breakdown
+│   └── agenticAI_Day1.ipynb      # Sweet Crumbs Bakery implementation
+├── DAY2/
+│   ├── README.md                 # Detailed Day 2 technical breakdown
+│   └── agenticAI_Day2.ipynb      # BrightPage Stationery implementation
+└── DAY3/
+    ├── README.md                 # Detailed Day 3 LCEL & Evaluation guide
+    ├── task.ipynb                # Composable chains, evaluation & agent notebook
+    ├── tests.csv                 # 10 test cases for Sweet Crumbs Bakery
+    └── brightpage_tests.csv      # 10 test cases for BrightPage Stationery
 ```
-Navigate to [`DAY1/agenticAI_Day1.ipynb`](DAY1/agenticAI_Day1.ipynb) or [`DAY2/agenticAI_Day2.ipynb`](DAY2/agenticAI_Day2.ipynb) to run the interactive cells.
