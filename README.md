@@ -6,7 +6,7 @@
 [![Google Gemini](https://img.shields.io/badge/LLM-Google%20Gemini-blue.svg)](https://ai.google.dev/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-orange.svg)](https://jupyter.org/)
 
-Hands-on repository tracking the progressive architecture of autonomous LLM agents — from single API calls and safety guardrails to composable LCEL chains, test-driven evaluation, and multi-step reasoning agents.
+Hands-on repository tracking the progressive architecture of autonomous LLM agents — from single API calls and safety guardrails to composable LCEL chains, tool execution loops, Pydantic schemas, and persistent Google Sheets logging.
 
 ---
 
@@ -17,6 +17,7 @@ Hands-on repository tracking the progressive architecture of autonomous LLM agen
 | **Day 1** | **LLM Fundamentals, Groq API & Prompt Guard**<br>Sweet Crumbs Home Bakery Assistant | [📖 Day 1 Guide](DAY1/README.md) | [💻 Day 1 Notebook](DAY1/agenticAI_Day1.ipynb) |
 | **Day 2** | **Prompts, Memory & Structured Agent Architecture**<br>BrightPage Stationery & Office Supplies Assistant | [📖 Day 2 Guide](DAY2/README.md) | [💻 Day 2 Notebook](DAY2/agenticAI_Day2.ipynb) |
 | **Day 3** | **LCEL Chains, Systematic Evaluation & Agent Sneak Peek**<br>Composable Chains, CSV Evaluations & Google Gemini | [📖 Day 3 Guide](DAY3/README.md) | [💻 Day 3 Notebook](DAY3/task.ipynb) |
+| **Day 4** | **Tool Calling, Structured Outputs & Persistent Logs**<br>LangChain `@tool`, Pydantic Schemas, Sheets Logging & Execution Traces | [📖 Day 4 Guide](DAY4/README.md) | [💻 Day 4 Notebook](DAY4/task.ipynb) |
 
 ---
 
@@ -44,7 +45,7 @@ Hands-on repository tracking the progressive architecture of autonomous LLM agen
 
 3. **Install Dependencies & Launch:**
    ```bash
-   pip install langchain langchain-groq langchain-google-genai openai pydantic ipywidgets python-dotenv
+   pip install langchain langchain-groq langchain-google-genai gspread openai pydantic ipywidgets python-dotenv
    jupyter notebook
    ```
 
@@ -64,9 +65,14 @@ Hands-on repository tracking the progressive architecture of autonomous LLM agen
 ├── DAY2/
 │   ├── README.md                 # Detailed Day 2 technical breakdown
 │   └── agenticAI_Day2.ipynb      # BrightPage Stationery implementation
-└── DAY3/
-    ├── README.md                 # Detailed Day 3 LCEL & Evaluation guide
-    ├── task.ipynb                # Composable chains, evaluation & agent notebook
-    ├── tests.csv                 # 10 test cases for Sweet Crumbs Bakery
-    └── brightpage_tests.csv      # 10 test cases for BrightPage Stationery
+├── DAY3/
+│   ├── README.md                 # Detailed Day 3 LCEL & Evaluation guide
+│   ├── task.ipynb                # Composable chains, evaluation & agent notebook
+│   ├── tests.csv                 # 13 regression test cases for Sweet Crumbs Bakery
+│   └── brightpage_tests.csv      # 10 test cases for BrightPage Stationery
+└── DAY4/
+    ├── README.md                 # Detailed Day 4 Tools & Traces guide
+    ├── task.ipynb                # Autonomous tool-calling agent implementation
+    ├── sweet_crumbs_orders.csv   # Local persistent order log for Sweet Crumbs Bakery
+    └── brightpage_orders.csv     # Local persistent order log for BrightPage Stationery
 ```
